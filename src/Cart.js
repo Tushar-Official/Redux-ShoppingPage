@@ -10,7 +10,7 @@ export const Cart = () => {
   }
   
   return (
-    <div className='flex flex-wrap m-4 w-screen'>
+    <div className='flex flex-wrap text-center m-4 w-screen'>
 
     <h1 className='font-bold text-xl text-black'>CART</h1>
     {

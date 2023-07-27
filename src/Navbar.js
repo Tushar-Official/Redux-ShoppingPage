@@ -17,9 +17,9 @@ export const Navbar = () => {
     </div>
     
     <div className='flex justify-around font-black py-2 mr-32'>
-    <Link to="/" className='mx-4 font-extrabold text-lg'>Home</Link>
-    <Link to="/cart" className='mx-4 font-extrabold text-lg'>Cart</Link>
-    <h3 className='mx-4 font-extrabold text-lg'>Cart Item: {products.length}</h3>
+    <Link to="/" className='mx-4 font-extrabold text-xl'>Home</Link>
+    <Link to="/cart" className='mx-4 font-extrabold text-xl'>Cart</Link>
+    <h3 className='mx-4 font-extrabold text-2xl'>🗑️{products.length}</h3>
     
     </div>
 

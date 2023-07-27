@@ -11,6 +11,7 @@ const Usedata = () => {
         
       }
       catch(err){
+        console.log(err)
         
       }
     }

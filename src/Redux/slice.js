@@ -16,11 +16,12 @@ const CartSlice=createSlice({
             return state.filter((item)=>item.id!==action.payload)
             
 
-        }
+        },
+        
 
     }
 })
 
-export const{add,remove}=CartSlice.actions
+export const{add,remove,sort}=CartSlice.actions
 
 export default CartSlice.reducer
