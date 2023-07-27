@@ -12,14 +12,14 @@ export const Navbar = () => {
   return (
     <div className=' flex w-screen  justify-between px-2 py-3  bg-slate-100 h-20 '>
 
-    <div className='ml-12 py-2'>
-    <h1 className='text-2xl font-extrabold'>Shopping App</h1>
+    <div className='ml-36 py-2'>
+    <h1 className='text-2xl font-extrabold text-slate-700'>Shopping App</h1>
     </div>
     
-    <div className='flex justify-around font-black py-2 mr-32'>
+    <div className='flex justify-around text-slate-700 py-2 mr-32'>
     <Link to="/" className='mx-4 font-extrabold text-xl'>Home</Link>
     <Link to="/cart" className='mx-4 font-extrabold text-xl'>Cart</Link>
-    <h3 className='mx-4 font-extrabold text-2xl'>🗑️{products.length}</h3>
+    <h2 className='mx-4 font-extrabold text-2xl'>🛍️{products.length}</h2>
     
     </div>
 

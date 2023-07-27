@@ -7,6 +7,7 @@ export const Cart = () => {
   const dispatch=useDispatch()
   const handleRemove=(product)=>{
     dispatch(remove(product))
+    console.log(product)
   }
   
   return (
