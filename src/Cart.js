@@ -7,7 +7,7 @@ export const Cart = () => {
   const dispatch=useDispatch()
   const handleRemove=(product)=>{
     dispatch(remove(product))
-    console.log(product)
+    
   }
   
   return (
@@ -15,8 +15,9 @@ export const Cart = () => {
 
     <h1 className='font-bold text-xl text-black'>CART</h1>
     {
-        products.map(product=>(
-            <div className='productCard h-88 bg-slate-50 w-full justify-between flex text-center rounded mx-12 my-4 px-2 py-2  ' key={product.id}>
+        products.map((product)=>(
+            <div className='productCard h-88 bg-slate-50 w-full justify-between flex text-center rounded mx-12 my-4 px-2 py-2  ' 
+            key={product.id}>
         <img src={product.image} alt="product" className=' w-28 h-28'/>
             <div className='items-center w-full flex justify-between  text-l  '>
             <h2 className='font-bold py-1 ml-12'>{product.title}</h2>

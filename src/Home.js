@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import useData from './useAPI'
 import { useDispatch } from 'react-redux'
 import { add } from './Redux/slice'
-// import {v4 as uuidv4} from 'uuid'
+
 
 export const Home = () => {
     const [data,setData]=useState([])
@@ -72,7 +72,7 @@ export const Home = () => {
       })
 
         
-             .map(product=>(
+             .map((product)=>(
              
                 <div className='productCard h-84 bg-slate-50 w-72 flex justify-center flex-wrap rounded m-12 px-2 py-2 hover:scale-95 ' 
                 key={product.id}>
