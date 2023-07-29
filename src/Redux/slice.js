@@ -12,7 +12,7 @@ const CartSlice = createSlice({
   initialState,
  reducers:{
     add(state,action){
-      
+      console.log(action.payload.title)
       let itemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
@@ -39,6 +39,10 @@ const CartSlice = createSlice({
       if (itemIndex >= 0 && state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1; // Decrement the quantity for existing product
       }
+      else {
+        state.cartItems.splice(itemIndex, 1); // Remove the item from the cart if its quantity becomes 0
+      }
+  
     },
     increment(state, action) {
       const { id } = action.payload;
@@ -50,9 +54,12 @@ const CartSlice = createSlice({
       }
     },
       remove(state,action){
+       
       const idToRemove = action.payload.id;
       state.cartItems = state.cartItems.filter(
         (cartItem) => cartItem.id !== idToRemove);
+       
+        toast.success(`Product Successfully removed  `, { position: "bottom-left" });
 
     },
    

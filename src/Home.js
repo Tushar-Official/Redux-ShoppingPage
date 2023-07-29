@@ -48,11 +48,12 @@ export const Home = () => {
   return (
     <>
     <div className="navbar p-4 h-24">
-    <input type="text" placeholder='Search Your data....' 
+    <input type="text" placeholder='Search Your Product here....' 
     className='my-2 h-1/2 w-96 border-2 text-center text-lg border-slate-400 rounded-l-xl'   
     value={data} onChange={(e)=>setData(e.target.value)}/>
 
-    <button onClick={setSearch} className='bg-slate-300 text-xl h-1/2 w-24 rounded-r-xl border-2 border-slate-200 font-extrabold '>Search</button>
+    <button onClick={setSearch} className='bg-slate-300 text-xl h-1/2 w-24 rounded-r-xl border-2 border-slate-200 font-extrabold '>
+    Search</button>
     </div>
     <div>
     <select onChange={sorting} className='border-2 border-black' >
