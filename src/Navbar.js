@@ -8,7 +8,9 @@ export const Navbar = () => {
 
 
   
-  const products=useSelector((state)=>state.cart)
+  const products=useSelector((state)=>state.cart.cartItems)
+  console.log(products.length)
+  
   return (
     <div className=' flex w-screen  justify-between px-2 py-3  bg-slate-100 h-20 '>
 

@@ -8,6 +8,7 @@ export const Home = () => {
     const [data,setData]=useState([])
     const [data1,setData1]=useState([])
     const [flag,setFlag]=useState("false")
+    const [buttonNames, setButtonNames] = useState({});
  
     const dispatch=useDispatch();
     const dataObj=useData()
@@ -24,6 +25,10 @@ export const Home = () => {
     }
     const handleClick=(product)=>{
             dispatch(add(product))
+            setButtonNames((prevButtonNames) => ({
+              ...prevButtonNames,
+              [product.id]: 'Added to Cart', // You can set any text you want here
+            }));
             }
 
     const sorting = (event) => {
@@ -83,8 +88,12 @@ export const Home = () => {
                 <h3 className='text-green-900 font-bold py-1'>₹{product.price}</h3>
                 <p className='text-blue-950 font-bold py-1'>{product.rating.rate}⭐</p>
                 <button 
-                className='bg-purple-800 text-white font-semibold text-m px-2 py-2  rounded-xl hover:bg-blue-800'
-                onClick={()=>handleClick(product)} >ADD TO CART</button>
+                className='bg-purple-800 text-white font-semibold text-m px-2 py-2  rounded-xl hover:bg-blue-800 '
+                onClick={()=>handleClick(product)}enabled={buttonNames[product.id] === 'Added to Cart'} // Disable the button if it's already added
+                >
+                  {buttonNames[product.id] || 'Add to Cart'}
+                 </button>
+                
                 </div>
                 </div>
     

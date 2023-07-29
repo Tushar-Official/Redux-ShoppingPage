@@ -1,27 +1,66 @@
 import { createSlice } from "@reduxjs/toolkit";
-const CartSlice=createSlice({
-    
-   
-    name:'cart',
-    initialState:[],
-   reducers:{
-        add(state,action){
-            state.push(action.payload)
-            
-           
+import {toast} from "react-toastify"
 
 
-        },
-        remove(state,action){
-            return state.filter((item)=>item.id!==action.payload)
-            
+const initialState = {
+  cartItems: [],
+  cartQuantity: 0,
+};
 
-        },
+const CartSlice = createSlice({
+  name: "cart",
+  initialState,
+ reducers:{
+    add(state,action){
+      
+      let itemIndex = state.cartItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (itemIndex >= 0) {
+        const clonedProduct = JSON.parse(JSON.stringify(state.cartItems[itemIndex]));
+        clonedProduct.cartQuantity += 1;
+        state.cartItems[itemIndex] = clonedProduct;
+        console.log(state.cartItems.length)
         
+        toast.info(`${action.payload.title} to cart`, { position: "bottom-left" });
+      } else {
+        const tempProduct = { ...action.payload, cartQuantity: 1 };
+        state.cartItems.push(tempProduct);
+        console.log(state.cartItems.length)
+        toast.success(`Successfully added ${action.payload.title} `, { position: "bottom-left" });
+      }
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+    },
+    
+    decrement(state, action) {
+      const { id } = action.payload;
+      const itemIndex = state.cartItems.findIndex((item) => item.id === id);
 
-    }
-})
+      if (itemIndex >= 0 && state.cartItems[itemIndex].cartQuantity > 1) {
+        state.cartItems[itemIndex].cartQuantity -= 1; // Decrement the quantity for existing product
+      }
+    },
+    increment(state, action) {
+      const { id } = action.payload;
+      const itemIndex = state.cartItems.findIndex((item) => item.id === id);
 
-export const{add,remove}=CartSlice.actions
+      if (itemIndex >= 0) {
+        state.cartItems[itemIndex].cartQuantity += 1;
+       // Increment the quantity for existing product
+      }
+    },
+      remove(state,action){
+      const idToRemove = action.payload.id;
+      state.cartItems = state.cartItems.filter(
+        (cartItem) => cartItem.id !== idToRemove);
 
-export default CartSlice.reducer
+    },
+   
+    
+
+}
+});
+
+export const { add, remove ,decrement,increment } = CartSlice.actions;
+
+export default CartSlice.reducer;

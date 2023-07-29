@@ -7,11 +7,14 @@ import { store } from './Redux/store';
 import { Provider } from 'react-redux';
 import { Cart } from './Cart';
 import { Footer } from './Footer';
+import {ToastContainer} from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css"
 function App() {
   return (
     <div className="App">
     <Provider store={store}>
     <Router>
+    <ToastContainer/>
       <Navbar/>
       <Routes>
        <Route path="/" element={<Home/>}/>
