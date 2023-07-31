@@ -1,18 +1,23 @@
 import React, { useRef } from 'react'
-
+import {toast} from "react-toastify"
 export const SignUp = () => {
 
     const name=useRef()
     const email=useRef()
     const password=useRef()
     const handleSubmit=()=>{
-   
+
+      if(name.current.value ===""|| email.current.value===""|| password.current.value==="" ){
+        toast.error(`Please fill in the details `, { position: "bottom-left" });
+      }
+      else{
+        toast.success(`Welcome to Shopping App  ${name.current.value}`, { position: "bottom-left" });
         console.log(name.current.value,email.current.value,password.current.value)
         localStorage.setItem('name',name.current.value)
         localStorage.setItem('email',email.current.value)
         localStorage.setItem('password',password.current.value)
         localStorage.setItem('signUp',email.current.value)
-        
+      }
     }
     
   return (
@@ -23,7 +28,8 @@ export const SignUp = () => {
     <input type="email" placeholder='Email' ref={email} className='text-center text-xl mt-8 r h-12 border-2 border-slate-200'/>
     <input type="password" placeholder='Password' ref={password} className='text-center text-xl mt-8 h-12  border-2 border-slate-200'/>
     <buttton 
-    className="bg-green-600 text-white mx-56 mt-4 hover:bg-green-800  text-center h-8 p-1 text-base  font-bold cursor-pointer " onClick={handleSubmit}>Create Account</buttton>
+    className="bg-green-600 text-white mx-56 mt-4 hover:bg-green-800  text-center h-8 p-1 text-base  font-bold cursor-pointer " 
+    onClick={handleSubmit}>Create Account</buttton>
     </form>
     
       
