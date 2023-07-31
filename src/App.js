@@ -9,6 +9,8 @@ import { Cart } from './Cart';
 import { Footer } from './Footer';
 import {ToastContainer} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
+import { LogIn } from './LogIn';
+import { SignUp } from './SignUp';
 function App() {
   return (
     <div className="App ">
@@ -19,6 +21,8 @@ function App() {
       <Routes>
        <Route path="/" element={<Home/>}/>
        <Route path="cart" element={<Cart/>}/>
+       <Route path="LogIn" element={<LogIn/>}/>
+       <Route path="SignUp" element={<SignUp/>}/>
        </Routes>
        </Router>
        <Footer />
