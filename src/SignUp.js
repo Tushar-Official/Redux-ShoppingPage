@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import {toast} from "react-toastify"
 import { useNavigate } from 'react-router-dom'
+
 export const SignUp = () => {
   const navigate=useNavigate()
     const name=useRef()
@@ -17,8 +18,8 @@ export const SignUp = () => {
         localStorage.setItem('name',name.current.value)
         localStorage.setItem('email',email.current.value)
         localStorage.setItem('password',password.current.value)
-        localStorage.setItem('signUp',email.current.value)
-        navigate("/LogIn")
+       
+        navigate(`/LogIn?name=${encodeURIComponent(name.current.value)}&password=${encodeURIComponent(password.current.value)}`);
         
       }
     }

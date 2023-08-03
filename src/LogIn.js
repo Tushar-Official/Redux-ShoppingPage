@@ -1,12 +1,16 @@
 import React, { useRef} from 'react'
 import {toast} from "react-toastify"
 import {useNavigate} from "react-router-dom"
-// import { useDispatch } from 'react-redux'
-// import { LoggedIn } from './Redux/slice'
+import { useLocation } from 'react-router-dom';
+
 
 export const LogIn = () => {
-    // const dispatch=useDispatch()
+  const location = useLocation();
     const navigate=useNavigate()
+    const params = new URLSearchParams(location.search);
+    const nameFromURL = params.get('name');
+    const passwordFromURL = params.get('password');
+
     
     const name=useRef()
    let status=useRef(false)
@@ -15,34 +19,19 @@ export const LogIn = () => {
     const handleSubmit=(event)=>{
         event.preventDefault()
    
-        if(name.current.value === "" || password.current.value === ""){
-            toast.error(`Please fill in the details `, { position: "bottom-left" });
-         
-
+        if (name.current.value === "" || password.current.value === "") {
+          toast.error(`Please fill in the details `, { position: "bottom-left" });
+        } else if (name.current.value === nameFromURL && password.current.value === passwordFromURL) {
+          setTimeout(() => {
+            status.current = true;
+            localStorage.setItem('signUp', status.current);
+            navigate("/");
+            window.location.reload();
+          }, 1000);
+        } else {
+          toast.error(`Credentials not found`, { position: "bottom-left" });
         }
-        else{
-          setTimeout(()=>{
-            
-            status=true
-             // console.log(status)
-        
-         localStorage.setItem('name',name.current.value)
-         localStorage.setItem('password',password.current.value)
-         localStorage.setItem('signUp',status)
- 
-        
-           navigate("/")
- 
-         
-        
-             window.location.reload()
-         
-
-          },1000)
-         
-}
-    
-    }
+      };
        
     
    
