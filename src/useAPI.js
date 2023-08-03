@@ -15,7 +15,7 @@ const Usedata = () => {
         console.log(err)
         
       }
-    },1000)
+    },600)
     }
   
   
