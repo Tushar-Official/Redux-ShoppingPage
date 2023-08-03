@@ -12,6 +12,9 @@ import "react-toastify/dist/ReactToastify.css"
 import { LogIn } from './LogIn';
 import { SignUp } from './SignUp';
 import { Suspense ,lazy } from 'react';
+
+
+
 const Home=lazy(()=>import('./Home'))
 function App() {
   
@@ -24,7 +27,7 @@ function App() {
       <Routes>
       
        <Route path="/" element={
-        <Suspense fallback={<div><h1 className='text-2xl text-black font-extrabold'>Loading....</h1></div>}>
+        <Suspense fallback={<div><h1 className='text-2xl text-black font-extrabold p-12'>Loading....</h1></div>}>
         <Home/>
         </Suspense>
       }/>
@@ -32,8 +35,11 @@ function App() {
        <Route path="cart" element={<Cart/>}/>
        <Route path="LogIn" element={<LogIn/>}/>
        <Route path="SignUp" element={<SignUp/>}/>
+       
        </Routes>
        </Router>
+       
+      
        <Footer />
     </Provider>
     </div>

@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import useData from './useAPI'
 import { useDispatch } from 'react-redux'
 import { add } from './Redux/slice'
-
+import { animateScroll as scroll } from 'react-scroll'; 
 
  const Home = () => {
     const [data,setData]=useState([])
@@ -29,6 +29,9 @@ import { add } from './Redux/slice'
               ...prevButtonNames,
               [product.id]: 'Added to Cart', // You can set any text you want here
             }));
+            }
+            const scrollToTop = () => {
+              scroll.scrollToTop();
             }
 
     const sorting = (event) => {
@@ -106,6 +109,9 @@ import { add } from './Redux/slice'
 
     
     </div>
+    <button onClick={scrollToTop} className="fixed bottom-10 right-10 bg-blue-500 font-semibold text-white p-2 rounded-full">
+        Scroll to Top
+      </button>
     
     </>
   )

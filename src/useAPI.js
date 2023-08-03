@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 
 const Usedata = () => {
     const [Data,setData]=useState([])
-   
+ 
     const getData=async()=>{
+      setTimeout(async()=>{
         const response=await fetch("https://fakestoreapi.com/products/")
         const data=await response.json()
       try{
@@ -14,11 +15,17 @@ const Usedata = () => {
         console.log(err)
         
       }
+    },1000)
     }
-    useEffect(()=>{
+  
+  
+      useEffect(()=>{
         getData()
-        
-    },[])
+      }
+    ,[])
+      
+    
+   
 
   return Data
 }
