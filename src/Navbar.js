@@ -23,11 +23,11 @@ setTimeout(()=>{
 
     <div className='ml-24 py-2 flex'>
    
-    <Link to="/"><h1 className='text-3xl ml-8 font-extrabold text-slate-700 hover:text-sky-600'> TK Shopping App</h1></Link>
+    <Link to="/"><h1 className='text-4xl ml-8 font-extrabold text-teal-600  hover:text-sky-600'> TaraGini🛍️ </h1></Link>
     </div>
     
     <div className='flex justify-around text-slate-700 py-2 mr-24'>
-    {userStatus==="true"?<Link to="/"><h3 className='mx-4 font-extrabold text-xl hover:text-green-600'>{localStorage.getItem('name')}</h3></Link>: null}
+    {userStatus==="true"?<Link to="/"><h3 className='mx-4 font-extrabold text-xl hover:text-green-600'>👤{localStorage.getItem('name')}</h3></Link>: null}
     <Link to="/" className='mx-4 font-extrabold text-xl hover:text-green-600'>Home</Link>
  {userStatus==="true"? <Link to="/" className='mx-4 font-extrabold text-xl hover:text-red-600' onClick={handleLogOut}>LogOut</Link>:
 <>
