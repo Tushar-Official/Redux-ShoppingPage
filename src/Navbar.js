@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
+
 export const Navbar = () => {
   // const status=useSelector((state)=>state.cart.userStatus)
   const products=useSelector((state)=>state.cart.cartItems)
@@ -20,8 +21,9 @@ setTimeout(()=>{
   return (
     <div className=' flex w-screen  justify-between px-2 py-3  bg-slate-200 h-20 '>
 
-    <div className='ml-28 py-2'>
-    <Link to="/"><h1 className='text-3xl font-extrabold text-slate-700 hover:text-sky-600'> TK Shopping App</h1></Link>
+    <div className='ml-24 py-2 flex'>
+   
+    <Link to="/"><h1 className='text-3xl ml-8 font-extrabold text-slate-700 hover:text-sky-600'> TK Shopping App</h1></Link>
     </div>
     
     <div className='flex justify-around text-slate-700 py-2 mr-24'>
