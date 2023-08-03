@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { add } from './Redux/slice'
 
 
-export const Home = () => {
+ const Home = () => {
     const [data,setData]=useState([])
     const [data1,setData1]=useState([])
     const [flag,setFlag]=useState("false")
@@ -110,3 +110,4 @@ export const Home = () => {
     </>
   )
 }
+export default Home

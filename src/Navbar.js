@@ -5,14 +5,18 @@ export const Navbar = () => {
   const products=useSelector((state)=>state.cart.cartItems)
  
  const userStatus=localStorage.getItem('signUp')
-  // console.log(userStatus)
  const handleLogOut=()=>{
-  localStorage.getItem('signUp',false)
+setTimeout(()=>{
   localStorage.clear()
   window.location.reload();
+
+},1500)
+ 
   
  }
-  
+  // console.log(userStatus)
+ 
+
   return (
     <div className=' flex w-screen  justify-between px-2 py-3  bg-slate-200 h-20 '>
 
@@ -23,7 +27,7 @@ export const Navbar = () => {
     <div className='flex justify-around text-slate-700 py-2 mr-24'>
     {userStatus==="true"?<Link to="/"><h3 className='mx-4 font-extrabold text-xl hover:text-green-600'>{localStorage.getItem('name')}</h3></Link>: null}
     <Link to="/" className='mx-4 font-extrabold text-xl hover:text-green-600'>Home</Link>
- {userStatus==="true"? <Link to="/SignUp" className='mx-4 font-extrabold text-xl hover:text-red-600' onClick={handleLogOut}>LogOut</Link>:
+ {userStatus==="true"? <Link to="/" className='mx-4 font-extrabold text-xl hover:text-red-600' onClick={handleLogOut}>LogOut</Link>:
 <>
     <Link to="/LogIn" className='mx-4 font-extrabold text-xl hover:text-green-600'>SignIn</Link>
   <Link to="/SignUp" className='mx-4 font-extrabold text-xl hover:text-green-600'>SignUp</Link> </>

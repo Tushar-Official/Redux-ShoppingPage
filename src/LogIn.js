@@ -21,17 +21,25 @@ export const LogIn = () => {
 
         }
         else{
-           status=true
-            // console.log(status)
-        toast.success(`Welcome back User ${name.current.value}`, { position: "bottom-left" });
-        localStorage.setItem('name',name.current.value)
-        localStorage.setItem('password',password.current.value)
-        localStorage.setItem('signUp',status)
-
+          setTimeout(()=>{
             
-        navigate("/")
-            window.location.reload()
+            status=true
+             // console.log(status)
         
+         localStorage.setItem('name',name.current.value)
+         localStorage.setItem('password',password.current.value)
+         localStorage.setItem('signUp',status)
+ 
+        
+           navigate("/")
+ 
+         
+        
+             window.location.reload()
+         
+
+          },1000)
+         
 }
     
     }
