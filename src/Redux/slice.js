@@ -5,6 +5,7 @@ import {toast} from "react-toastify"
 const initialState = {
   cartItems: [],
   cartQuantity: 0,
+  // userStatus:"",
 };
 
 const CartSlice = createSlice({
@@ -12,7 +13,7 @@ const CartSlice = createSlice({
   initialState,
  reducers:{
     add(state,action){
-      console.log(action.payload.title)
+      // console.log(action.payload.title)
       let itemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
@@ -20,16 +21,16 @@ const CartSlice = createSlice({
         const clonedProduct = JSON.parse(JSON.stringify(state.cartItems[itemIndex]));
         clonedProduct.cartQuantity += 1;
         state.cartItems[itemIndex] = clonedProduct;
-        console.log(state.cartItems.length)
+        // console.log(state.cartItems.length)
         
         toast.info(`${action.payload.title} to cart`, { position: "bottom-left" });
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
-        console.log(state.cartItems.length)
+        // console.log(state.cartItems.length)
         toast.success(`Successfully added ${action.payload.title} `, { position: "bottom-left" });
       }
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      
     },
     
     decrement(state, action) {
@@ -58,16 +59,20 @@ const CartSlice = createSlice({
       const idToRemove = action.payload.id;
       state.cartItems = state.cartItems.filter(
         (cartItem) => cartItem.id !== idToRemove);
-       
+        localStorage.removeItem("cartItems", JSON.stringify(state.cartItems));
         toast.success(`Product Successfully removed  `, { position: "bottom-left" });
 
     },
+    // LoggedIn(state,action){
+    //   // console.log(action.payload);
+    //   state.userStatus = action.payload;
+    // }
    
     
 
 }
 });
 
-export const { add, remove ,decrement,increment } = CartSlice.actions;
+export const { add, remove ,decrement,increment} = CartSlice.actions;
 
 export default CartSlice.reducer;
