@@ -44,7 +44,7 @@ export const LogIn = () => {
     <input type="text" placeholder='UserName' ref={name} className='text-center text-xl mt-8 r h-12 border-2 border-slate-200'/>
     <input type="password" placeholder='Password' ref={password} className='text-center text-xl mt-8 h-12  border-2 border-slate-200'/>
     <button 
-    className="bg-green-600 text-white mx-56 mt-4 hover:bg-green-800  text-center h-8 text-lg  font-bold cursor-pointer " 
+    className="bg-blue-300 text-slate-700  mt-4 hover:bg-sky-800 hover:text-white  text-center h-8 text-lg  font-bold cursor-pointer " 
     onClick={handleSubmit}>Log In</button>
     </form>
     

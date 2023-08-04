@@ -23,7 +23,7 @@ setTimeout(()=>{
 
     <div className='ml-24 py-2 flex'>
    
-    <Link to="/"><h1 className='text-yellow-500 text-4xl ml-8 font-extrabold   hover:text-sky-600'> TaraGini🛍️ </h1></Link>
+    <Link to="/"><h1 className='text-yellow-500 text-4xl ml-8 font-extrabold bg-transparent   hover:text-sky-600'> TaraGini🛍️ </h1></Link>
     </div>
     
     <div className='flex justify-around text-slate-700 py-2 mr-24'>

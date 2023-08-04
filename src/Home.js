@@ -58,12 +58,12 @@ import { animateScroll as scroll } from 'react-scroll';
     <button onClick={setSearch} className='bg-slate-300 text-xl h-1/2 w-24 rounded-r-xl hover:bg-green-600 hover:text-white border-2 border-slate-200 font-extrabold '>
     Search</button>
     </div>
-    <div className='w-full  flex justify-end pr-28 mb-2'>
+    <div className='w-full  flex justify-end pr-28 mb-4'>
     <select onChange={sorting} className='border-2 border-black rounded-lg justify-end bg-slate-100 text-slate-700 ' >
     
     
-    <option value="lowToHigh" className=' text-sm text-center bg-slate-300 font-semibold text-slate-700 '>Low to High</option>
-    <option value="highToLow" className=' text-sm text-center bg-slate-300 font-semibold text-slate-700  '>High to Low</option>
+    <option value="lowToHigh" className=' text-m text-center bg-slate-300 font-semibold text-slate-700 '>Low to High</option>
+    <option value="highToLow" className=' text-m text-center bg-slate-300 font-semibold text-slate-700  '>High to Low</option>
     </select>
     { flag ==="true"?<span className='p-1 w-8 text-sm ml-1  cursor-pointer hover:bg-slate-200' onClick={resetValue}>❌</span>:null}
     </div>
