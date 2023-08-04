@@ -38,7 +38,7 @@ export const LogIn = () => {
    
   return (
     <div>
-    <div className='p-5 w-full items-center h-96 bg-slate-100'>
+    <div className='p-5 w-full items-center h-96 mt-8 bg-slate-100'>
     <form className='flex flex-col ml-56 space-y-2 w-2/3 h-72 mt-12 px-48 bg-slate-100' >
     
     <input type="text" placeholder='UserName' ref={name} className='text-center text-xl mt-8 r h-12 border-2 border-slate-200'/>

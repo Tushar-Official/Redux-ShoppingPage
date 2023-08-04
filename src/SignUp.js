@@ -25,10 +25,10 @@ export const SignUp = () => {
     }
     
   return (
-    <div>
-    <div className='p-5 w-full items-center h-96 bg-slate-100'>
+    <div >
+    <div className='p-5 w-full items-center h-96 mt-24  bg-slate-100'>
     <h1 className='font-bold text-4xl font-serif text-green-600 '>Lets Create Your Account</h1>
-    <form className='flex flex-col ml-56 space-y-2 w-2/3 h-84 px-48 bg-slate-100' >
+    <form className='flex flex-col ml-56 space-y-2 w-2/3 h-84 px-48 bg-slate-100 ' >
     <input type="name" placeholder='Name' ref={name} className='text-center text-xl mt-8  h-12  border-2 border-slate-200  '/>
     <input type="email" placeholder='Email' ref={email} className='text-center text-xl mt-8 r h-12 border-2 border-slate-200'/>
     <input type="password" placeholder='Password' ref={password} className='text-center text-xl mt-8 h-12  border-2 border-slate-200'/>

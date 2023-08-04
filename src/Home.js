@@ -50,22 +50,22 @@ import { animateScroll as scroll } from 'react-scroll';
       }
   return (
     <>
-    <div className="navbar p-4 h-24">
+    <div className="navbar p-4 mt-24 h-24">
     <input type="text" placeholder='Search Your Product here....' 
-    className='my-2 h-1/2 w-96 border-2 text-center text-lg border-slate-400 rounded-l-xl'   
+    className='my-2 h-1/2 w-96 border-2 text-center text-lg border-slate-400 rounded-l-xl bg-white'   
     value={data} onChange={(e)=>setData(e.target.value)}/>
 
     <button onClick={setSearch} className='bg-slate-300 text-xl h-1/2 w-24 rounded-r-xl hover:bg-green-600 hover:text-white border-2 border-slate-200 font-extrabold '>
     Search</button>
     </div>
-    <div>
-    <select onChange={sorting} className='border-2 border-slate-400' >
+    <div className='w-full  flex justify-end pr-28 mb-2'>
+    <select onChange={sorting} className='border-2 border-black rounded-lg justify-end bg-slate-100 text-slate-700 ' >
     
     
-    <option value="lowToHigh" className=' text-sm bg-slate-300 font-semibold text-slate-700 '>Low to High</option>
-    <option value="highToLow" className=' text-sm bg-slate-300 font-semibold text-slate-700  '>High to Low</option>
+    <option value="lowToHigh" className=' text-sm text-center bg-slate-300 font-semibold text-slate-700 '>Low to High</option>
+    <option value="highToLow" className=' text-sm text-center bg-slate-300 font-semibold text-slate-700  '>High to Low</option>
     </select>
-    { flag ==="true"?<span className='p-1 ml-1  cursor-pointer hover:bg-slate-200' onClick={resetValue}>❌</span>:null}
+    { flag ==="true"?<span className='p-1 w-8 text-sm ml-1  cursor-pointer hover:bg-slate-200' onClick={resetValue}>❌</span>:null}
     </div>
     <div className="product flex flex-wrap justify-center w-screen h-full cursor-pointer">
 

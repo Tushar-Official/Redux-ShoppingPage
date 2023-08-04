@@ -26,7 +26,7 @@ export const Cart = () => {
 
 
   return (
-    <div className='flex flex-wrap text-center m-4  w-screen'>
+    <div className='flex flex-wrap text-center m-4 pt-24  w-screen'>
    {cartLength ===0 ? null:
     
     <div className='titles mt-2 grid grid-row-1 grid-cols-3 w-screen align-baseline justify-evenly'>
