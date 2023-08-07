@@ -5,7 +5,7 @@ import {toast} from "react-toastify"
 const initialState = {
   cartItems: [],
   cartQuantity: 0,
-  // userStatus:"",
+  userStatus:false,
 };
 
 const CartSlice = createSlice({
@@ -63,16 +63,16 @@ const CartSlice = createSlice({
         toast.success(`Product Successfully removed  `, { position: "bottom-left" });
 
     },
-    // LoggedIn(state,action){
-    //   // console.log(action.payload);
-    //   state.userStatus = action.payload;
-    // }
+    LoggedIn(state,action){
+      // console.log(action.payload);
+      state.userStatus = action.payload;
+    }
    
     
 
 }
 });
 
-export const { add, remove ,decrement,increment} = CartSlice.actions;
+export const { add, remove ,decrement,increment,LoggedIn} = CartSlice.actions;
 
 export default CartSlice.reducer;

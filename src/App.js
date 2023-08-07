@@ -12,8 +12,7 @@ import "react-toastify/dist/ReactToastify.css"
 import { LogIn } from './LogIn';
 import { SignUp } from './SignUp';
 import { Suspense ,lazy } from 'react';
-
-
+import { LoggedInUser } from './LoggedInUser';
 
 const Home=lazy(()=>import('./Home'))
 function App() {
@@ -35,6 +34,7 @@ function App() {
        <Route path="cart" element={<Cart/>}/>
        <Route path="LogIn" element={<LogIn/>}/>
        <Route path="SignUp" element={<SignUp/>}/>
+       <Route path="LoggedInUser" element={<LoggedInUser/>}/>
        
        </Routes>
        </Router>
