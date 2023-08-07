@@ -7,7 +7,7 @@ export const Cart = () => {
   const products = useSelector((state) => state.cart.cartItems); // Accessing the cartItems array
   const dispatch = useDispatch();
   const cartLength=products.length
-  
+  const status=useSelector((state)=>state.cart.userStatus)
 
   const handleRemove = (id) => {
     dispatch(remove({id})); // Dispatching the remove action with the product ID
@@ -88,9 +88,17 @@ export const Cart = () => {
       </div>
       <div className=''>
       <p className='text-xs'>Taxes and shipping calculated at checkout</p>
+      {status===true?
       <Link to="https://buy.stripe.com/aEU14P3BL3Y7gvKeUU" >
       <button className='bg-blue-950 mt-2 w-full text-white font-semibold px-3 py-3 text-xl rounded-xl hover:bg-green-600 hover:text-xl'>Check out
       </button></Link>
+      :
+      <Link to="/SignUp" >
+      <button className='bg-blue-950 mt-2 w-full text-white font-semibold px-3 py-3 text-xl rounded-xl hover:bg-green-600 hover:text-xl'>Check out
+      </button></Link>
+
+    }
+
       </div>
       <div className="continue-shopping flex w-full justify-center mt-2">
         <Link to="/">
