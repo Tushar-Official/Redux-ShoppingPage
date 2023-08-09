@@ -2,7 +2,7 @@ import React, { useRef} from 'react'
 import {toast} from "react-toastify"
 import { useNavigate} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { LoggedIn } from './Redux/slice'
+import { LoggedIn } from '../Redux/slice'
 import { LoggedInUser } from './LoggedInUser'
 import { useSelector } from 'react-redux'
 import { ref, push, set } from 'firebase/database';
@@ -38,12 +38,13 @@ export const SignUp = () => {
         Userpassword: password.current.value,
         UserEmail: email.current.value,
       };
-
+      dispatch(LoggedIn(true))
+      
       set(newUserRef, userData);
       navigate('/LogIn')
       
-      dispatch(LoggedIn(true))
-      navigate(`/LogIn?name=${encodeURIComponent(name.current.value)}&password=${encodeURIComponent(password.current.value)}`);
+      
+      // navigate(`/LogIn?name=${encodeURIComponent(name.current.value)}&password=${encodeURIComponent(password.current.value)}`);
          
       }
     }

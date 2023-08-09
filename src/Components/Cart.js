@@ -1,14 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { remove,decrement, increment} from './Redux/slice';
-import {Link} from 'react-router-dom'
+import { remove,decrement, increment} from '../Redux/slice';
+import {Link, useNavigate} from 'react-router-dom'
 
 export const Cart = () => {
   const products = useSelector((state) => state.cart.cartItems); // Accessing the cartItems array
   const dispatch = useDispatch();
+  const navigate=useNavigate()
   const cartLength=products.length
-  const status=useSelector((state)=>state.cart.userStatus)
-
+  
+  
   const handleRemove = (id) => {
     dispatch(remove({id})); // Dispatching the remove action with the product ID
   };
@@ -23,6 +24,19 @@ export const Cart = () => {
     (total, product) => total + product.price * product.cartQuantity,
     0
   );
+  const statusDetail=localStorage.getItem('signUp')
+  
+  const checkOut=()=>{
+    
+    if(statusDetail==="true"){
+      console.log("Navigating to Stripe...");
+      console.log(statusDetail)
+    window.open("https://buy.stripe.com/aEU14P3BL3Y7gvKeUU", "_blank");
+    }
+    else{
+      navigate("/SignUp")
+    }
+  }
 
 
   return (
@@ -88,16 +102,13 @@ export const Cart = () => {
       </div>
       <div className=''>
       <p className='text-xs'>Taxes and shipping calculated at checkout</p>
-      {status===true?
-      <Link to="https://buy.stripe.com/aEU14P3BL3Y7gvKeUU" >
-      <button className='bg-blue-950 mt-2 w-full text-white font-semibold px-3 py-3 text-xl rounded-xl hover:bg-green-600 hover:text-xl'>Check out
-      </button></Link>
-      :
-      <Link to="/SignUp" >
-      <button className='bg-blue-950 mt-2 w-full text-white font-semibold px-3 py-3 text-xl rounded-xl hover:bg-green-600 hover:text-xl'>Check out
-      </button></Link>
-
-    }
+    
+      
+      <button 
+      className='bg-blue-950 mt-2 w-full text-white font-semibold px-3 py-3 text-xl rounded-xl hover:bg-green-600 hover:text-xl'
+      onClick={checkOut}>Check out
+      </button>
+    
 
       </div>
       <div className="continue-shopping flex w-full justify-center mt-2">

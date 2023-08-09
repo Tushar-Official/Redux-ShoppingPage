@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import useData from './useAPI'
 import { useDispatch } from 'react-redux'
-import { add } from './Redux/slice'
+import { add } from '../Redux/slice'
 import { animateScroll as scroll } from 'react-scroll'; 
 
  const Home = () => {

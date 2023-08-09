@@ -13,7 +13,7 @@ const CartSlice = createSlice({
   initialState,
  reducers:{
     add(state,action){
-      // console.log(action.payload.title)
+      // console.log(userStatus)
       let itemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
@@ -64,8 +64,10 @@ const CartSlice = createSlice({
 
     },
     LoggedIn(state,action){
-      // console.log(action.payload);
+   
       state.userStatus = action.payload;
+      console.log(state.userStatus)
+      
     }
    
     

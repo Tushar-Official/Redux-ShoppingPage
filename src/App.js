@@ -2,19 +2,19 @@
 import './App.css';
 // import { Home } from './Home';
 import { BrowserRouter as Router ,Route,Routes } from 'react-router-dom';
-import { Navbar } from './Navbar';
+import { Navbar } from './Components/Navbar';
 import { store } from './Redux/store';
 import { Provider } from 'react-redux';
-import { Cart } from './Cart';
-import { Footer } from './Footer';
+import { Cart } from './Components/Cart';
+import { Footer } from './Components/Footer';
 import {ToastContainer} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
-import { LogIn } from './LogIn';
-import { SignUp } from './SignUp';
+import { LogIn } from './Components/LogIn';
+import { SignUp } from './Components/SignUp';
 import { Suspense ,lazy } from 'react';
-import { LoggedInUser } from './LoggedInUser';
+import { LoggedInUser } from './Components//LoggedInUser';
 
-const Home=lazy(()=>import('./Home'))
+const Home=lazy(()=>import('./Components/Home'))
 function App() {
   
   return (
