@@ -72,7 +72,7 @@ import { animateScroll as scroll } from 'react-scroll';
     {
       data1
       .filter((val) => {
-        if(data == ""){
+        if(data ==""){
           return val;
         }else if(val.title.toLowerCase().includes(data.toLowerCase())){
           return val;

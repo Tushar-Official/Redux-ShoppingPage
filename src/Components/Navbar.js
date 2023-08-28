@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
 import db from './Firebase';
 import { ref, remove } from 'firebase/database';
+import logo from './logo.png'
 
 export const Navbar = () => {
   
@@ -34,11 +35,11 @@ export const Navbar = () => {
  
 
   return (
-    <div className=' flex w-screen fixed top-0  justify-between px-2 py-3  bg-slate-800 h-20 '>
+    <div className=' flex w-screen fixed top-0  justify-between px-2 py-2  bg-slate-800 h-20 '>
 
-    <div className='ml-24 py-2 flex'>
-   
-    <Link to="/"><h1 className='text-yellow-500 text-4xl ml-8 font-extrabold bg-transparent   hover:text-sky-600'> TaraGini🛍️ </h1></Link>
+    <div className='ml-8 mb-2 flex'>
+    <img src={logo} alt="/" className='w-16 h-16 rounded-full '/>
+    <Link to="/" className='flex'><h1 className='text-yellow-500 text-4xl ml-12 py-2 font-extrabold bg-transparent   hover:text-sky-600'> TaraGini🛍️ </h1></Link>
     </div>
     
     <div className='flex justify-around text-slate-700 py-2 mr-24'>
